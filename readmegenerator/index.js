@@ -8,7 +8,7 @@ inquire
 	.prompt([
 		{
 			type: "input",
-			name: "github name",
+			name: "username",
 			message: "what is your gitHub profile?",
 		},
 		{
@@ -23,7 +23,7 @@ inquire
 		},
 		{
 			type: "input",
-			name: "project info",
+			name: "description",
 			message: "describe your project?",
 		},
 		{
@@ -37,7 +37,7 @@ inquire
 		},
 		{
 			type: "input",
-			name: "command",
+			name: "installation",
 			message: "What command should be ran to install dependencies?",
 		},
 		{
@@ -47,12 +47,12 @@ inquire
 		},
 		{
 			type: "input",
-			name: "need to know",
+			name: "usage",
 			message: "What does the user need to know abut using the repo?",
 		},
 		{
 			type: "input",
-			name: "contributing",
+			name: "contribution",
 			message: "What does the user need to know about contributing?",
 		},
 	])
