@@ -1,9 +1,7 @@
-// TODO: Include packages needed for this application
 const inquire = require("inquirer");
+const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
-const generate = require("./utils/generateMarkdown.js");
-
-// TODO: Create an array of questions for user inpnode ut
 inquire
 	.prompt([
 		{
@@ -18,7 +16,7 @@ inquire
 		},
 		{
 			type: "input",
-			name: "name",
+			name: "title",
 			message: "What is the project name?",
 		},
 		{
@@ -57,31 +55,13 @@ inquire
 		},
 	])
 	.then((answers) => {
-		const mark = generate(answers);
-
-		console.log(mark); //Use FS lirbrary to create readmeFile
+		console.log(answers);
+		const mark = generateMarkdown(answers);
+		fs.writeFile("readme.md", mark, function (err) {
+			if (err) {
+				console.log("could not save file");
+			} else {
+				console.log("sucessful new readme");
+			}
+		});
 	});
-
-// function init() {
-//     return inquire
-//         .prompt(questions)
-//         .then((answers) => {
-//             const mark = generate(answers);
-
-//             //use file
-
-//             return answers;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }
-
-// TODO: Create a function to write README file
-//function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-//function init() {}
-
-// Function call to initialize app
-//init();
